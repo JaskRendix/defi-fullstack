@@ -1,0 +1,27 @@
+framework:
+    # Application secret key (used for security features like CSRF protection, cookies, etc.)
+    secret: '%env(APP_SECRET)%'
+    
+    # Session handling (not critical for a pure API, but good practice)
+    session:
+        handler_id: null
+        cookie_secure: auto
+        cookie_samesite: lax
+        
+    # Router configuration
+    router:
+        # Enable route attributes (#[Route('/...')]) in your controllers
+        enabled: true
+        # Optimize route requirements in production
+        strict_requirements: ~
+
+    # Serializer configuration (handles JSON <-> PHP object conversion)
+    serializer:
+        enable_attributes: true
+        name_converter: 'serializer.name_converter.camel_case_to_snake_case'
+
+    # HTTP client configuration (optional, for making external requests)
+    # httpClient:
+    #     default_options:
+    #         max_redirects: 0
+    #         timeout: 30
